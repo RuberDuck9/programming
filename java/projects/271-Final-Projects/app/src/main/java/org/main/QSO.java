@@ -177,3 +177,105 @@ class Pota extends Contest {
     } 
 
 }
+
+class Special extends QSO {
+
+    protected String propogationType;
+
+    public Special(){
+        super();
+        contactType = "Special Contact";
+        propogationType = "Undefined";
+
+    }
+
+    public Special(String c, String f, String m, String l, String rs, String rr, String pt) {
+        super(c, f, m, l, rs, rr);
+        contactType = "Special Contact";
+        propogationType = pt;
+    }
+
+    public String toString(){
+        return "[" + time + "] - " 
+        + "[Contact Type: " + contactType + "] - "
+        + "[Callsign: " + callsign + "] - "
+        + "[Frequency: " + frequency + "MHz] - "
+        + "[Mode: " + mode + "] - "  
+        + "[Location: " + location + "] - " 
+        + "[Rst Sent: " + rstSent + "] - "
+        + "[Rst Received: " + rstReceived + "] - "
+        + "[Propogation Type: " + propogationType + "]";
+    } 
+
+}
+
+class Dx extends Special {
+
+    protected String distance;
+
+    public Dx(){
+        super();
+        contactType = "DX Contact";
+        distance = "Undefined";
+    }
+
+    public Dx(String c, String f, String m, String l, String rs, String rr, String d, String pt) {
+        super(c, f, m, l, rs, rr, pt);
+        contactType = "DX Contact";
+        distance = d;
+        propogationType = pt;
+    }
+
+    public String toString(){
+        return "[" + time + "] - " 
+        + "[Contact Type: " + contactType + "] - "
+        + "[Callsign: " + callsign + "] - "
+        + "[Frequency: " + frequency + "MHz] - "
+        + "[Mode: " + mode + "] - "  
+        + "[Location: " + location + "] - " 
+        + "[Rst Sent: " + rstSent + "] - "
+        + "[Rst Received: " + rstReceived + "] - "
+        + "[Propogation Type: " + propogationType + "] - "
+        + "[Distance: ]" + distance + "]";
+    } 
+
+}
+
+class Satellite extends Special {
+
+    protected String satelliteName;
+    protected String orbitType;
+    protected boolean isDopplerCorrected;
+
+    public Satellite(){
+        super();
+        contactType = "Satellite Contact";
+        satelliteName = "Undefined";
+        orbitType = "Undefined";
+        isDopplerCorrected = false;
+    }
+
+    public Satellite(String c, String f, String m, String l, String rs, String rr, String pt, String sn, String ot, boolean idc) {
+        super(c, f, m, l, rs, rr, pt);
+        contactType = "Satellite Contact";
+        satelliteName = sn;
+        orbitType = ot;
+        isDopplerCorrected = idc;
+    }
+
+    public String toString(){
+        return "[" + time + "] - " 
+        + "[Contact Type: " + contactType + "] - "
+        + "[Callsign: " + callsign + "] - "
+        + "[Frequency: " + frequency + "MHz] - "
+        + "[Mode: " + mode + "] - "  
+        + "[Location: " + location + "] - " 
+        + "[Rst Sent: " + rstSent + "] - "
+        + "[Rst Received: " + rstReceived + "] - "
+        + "[Satellite Name: " + satelliteName + "] - "
+        + "[Orbite Type: " + orbitType + "] - "
+        + "[Is Doppler Corrected: " + isDopplerCorrected + "] - "
+        + "[Propogation Type: " + propogationType + "]";
+    } 
+
+}

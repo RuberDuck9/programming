@@ -73,5 +73,44 @@ public class FileModification {
 
     }
 
+    public void logSpecialQSO(String filePath) {
+
+        Special special = new Special(io.getCallsign(), io.getFrequency(), io.getMode(), io.getLocation(), io.getRstSent(), io.getRstReceived(), io.getPropogationType());
+
+        try (FileWriter fw = new FileWriter(filePath.concat("log.txt"), true)) {
+            fw.write("\n" + special.toString());
+        } catch (IOException e) {
+            System.out.println("Error adding text ... quiting");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void logDXContact(String filePath) {
+
+        Dx dx = new Dx(io.getCallsign(), io.getFrequency(), io.getMode(), io.getLocation(), io.getRstSent(), io.getRstReceived(), io.getPropogationType(), io.getDistance());
+
+        try (FileWriter fw = new FileWriter(filePath.concat("log.txt"), true)) {
+            fw.write("\n" + dx.toString());
+        } catch (IOException e) {
+            System.out.println("Error adding text ... quiting");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void logSatelliteQSO(String filePath) {
+
+        Satellite satellite = new Satellite(io.getCallsign(), io.getFrequency(), io.getMode(), io.getLocation(), io.getRstSent(), io.getRstReceived(), io.getPropogationType(), io.getSatelliteName(), io.getOrbitType(), io.getIsDopplerCorrected());
+
+        try (FileWriter fw = new FileWriter(filePath.concat("log.txt"), true)) {
+            fw.write("\n" + satellite.toString());
+        } catch (IOException e) {
+            System.out.println("Error adding text ... quiting");
+            e.printStackTrace();
+        }
+
+    }
+
 }
 

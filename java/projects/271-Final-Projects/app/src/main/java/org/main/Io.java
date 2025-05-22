@@ -45,7 +45,10 @@ public class Io {
         System.out.println("2 - Log a generic contest contact");
         System.out.println("3 - Log a Pota contact");
         System.out.println("4 - Log a Sota contact");
-        System.out.println("5 - Exit");
+        System.out.println("5 - Log a Special contact");
+        System.out.println("6 - Log a Satellite contact");
+        System.out.println("7 - Log a Dx contact");
+        System.out.println("8 - Exit");
 
         return console.nextInt();
 
@@ -164,6 +167,51 @@ public class Io {
 
         System.out.println("What was the park name?");
         return console.nextLine();
+        
+    }
+
+    public String getPropogationType() {
+
+        System.out.println("What was the propogation type?");
+        return console.nextLine();
+        
+    }
+
+    public String getDistance() {
+
+        System.out.println("What was the distance?");
+        return console.nextLine();
+        
+    }
+
+    public String getSatelliteName() {
+
+        System.out.println("What was the satellite name?");
+        return console.nextLine();
+        
+    }
+
+    public String getOrbitType() {
+
+        System.out.println("What was the orbit type?");
+        return console.nextLine();
+        
+    }
+
+    public boolean getIsDopplerCorrected() {
+
+        System.out.println("What was the contact doppler corrected? [0/1]");
+
+        if(console.nextInt() == 0) {
+            return false;
+        }
+        else if(console.nextInt() == 1) {
+            return true;
+        }
+        else {
+            System.out.println("Invalid input, assuming not confirmed");
+            return false;
+        }
         
     }
 
