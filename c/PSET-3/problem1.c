@@ -36,7 +36,7 @@ int binary_search(int arr[], int size, int target) {
 
 	}
 
-	printf("Binary search failed after %d Iterations. Expected position is %d. \n", iterations, high + 1);
+	printf("Binary search failed to find %d after %d Iterations. Expected position is %d. \n", target, iterations, high + 1);
 
 	return -1;
 
