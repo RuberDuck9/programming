@@ -1,37 +1,41 @@
-int power(int num, int n) {
+#include <stdio.h>
 
-	if (n == 0) {
-		return 1;
-	}
+void printarr(int arr[], int size) {
 
-	else if (n == 1) {
-		return num;
+	printf("[ ");
+	for (int i = 0; i < size; i++) {
+		printf("%d ",arr[i]);
 	}
-
-	int half = power(num, n/2);
-	
-	if (n % 2 == 0) {	
-		return half * half;
-	}
-
-	else if (n % 2 != 0) {
-		return num * half * half;
-	}
+	printf("]\n");
 
 }
 
-void powerset(int arr[], int arr_size) {
+void powerset(int arr[], int size, int index, int subset[], int subsetelements) {
 
-	int powerset[power(2, arr_size)];
+	if (index == size) {
+		printarr(subset, subsetelements);
+		return;
+	}
+
+	//create two recursive iterations: one with the current element, and one without it
+	
+	//without
+	powerset(arr, size, index + 1, subset, subsetelements);
+
+	//with
+	subset[subsetelements] = arr[index];
+	powerset(arr, size, index + 1, subset, subsetelements + 1);
+
 
 }
 
 int main() {
 
 	int arr[5] = {1,2,3,4,5};
-	int arr_size = sizeof(arr)/sizeof(arr[0]);
+	int size = sizeof(arr)/sizeof(arr[0]);
+	int subset[size];
         
-	powerset(arr, arr_size);	
+	powerset(arr, size, 0, subset, 0);	
 
 	return 0;
 
