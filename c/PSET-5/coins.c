@@ -3,20 +3,25 @@
 
 int* coinsort(int cents) {
 
-	int coinvalues[] = {0,25,10,5,1};
+	int coinvalues[] = {25,10,5,1};
 	int* coins = (int*)malloc(4 * sizeof(int));
-	int i = i;
 
-	while (cents > 0) {
+	for (int i = 0; i < 4; i++) {
+		coins[i] = 0;
+	}
+
+	int j = 0;
+
+	while (cents >= 0) {
 		
-		if (cents > coinvalues[i]) {
-			coins[i] += 1;
-			cents -= coinvalues[i];
+		if (cents >= coinvalues[j]) {
+			coins[j] += 1;
+			cents -= coinvalues[j];
 		}	
-		else if (cents > 0 && i <= 4 ) {
-			i++;
+		else if (cents > 0 && j < 4) {
+			j++;
 		}	
-		else if (cents == 0 ) {
+		else if (cents == 0) {
 			return coins;
 		
 		}	
@@ -27,13 +32,14 @@ int* coinsort(int cents) {
 
 int main() {
 
-	int cents = 63;	
+	int cents = 99;	
 
 	int* coins = coinsort(cents);
 
-	for (int i = 0; i < 4; i++) {
-		printf("%d \n", coins[i]);
-	}
+	printf("%d Quarters\n", coins[0]);
+	printf("%d Dimes\n", coins[1]);
+	printf("%d Nickels\n", coins[2]);
+	printf("%d Pennies\n", coins[3]);
 
 	return 0;
 
