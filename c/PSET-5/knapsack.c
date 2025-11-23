@@ -66,7 +66,7 @@ int main() {
 	}
 
 	for (int i = 0; i < knapsack_size; i++) {
-		printf("Value %d, Weight %d, Ratio %f, Count %f \n", items[i].val, items[i].wt, items[i].ratio, items[i].count);
+		printf("Value %d, Weight %d, Ratio %f, Count %f\n", items[i].val, items[i].wt, items[i].ratio, items[i].count);
 	}
 
 	double total = 0.0;
@@ -75,7 +75,7 @@ int main() {
 		total += items[i].val * items[i].count;
 	}
 
-	printf("So, the total stored quantity is %f", total);
+	printf("So, the total stored quantity is %f\n", total);
 
 	return 0;
 
